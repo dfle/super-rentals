@@ -5,15 +5,18 @@ export default class RentalsFilter extends Component {
     let { rentals, query } = this.args;
 
     if (query) {
-      rentals = rentals.filter((rental) => [
-        rental.title,
-        rental.city,
-        rental.category,
-        rental.type,
-        rental.description
-      ].map(s => s.toLowerCase())
-      .join(' ')
-      .includes(query.toLowerCase()));
+      rentals = rentals.filter((rental) =>
+        [
+          rental.title,
+          rental.city,
+          rental.category,
+          rental.type,
+          rental.description,
+        ]
+          .map((s) => s.toLowerCase())
+          .join(' ')
+          .includes(query.toLowerCase()),
+      );
     }
 
     return rentals;
